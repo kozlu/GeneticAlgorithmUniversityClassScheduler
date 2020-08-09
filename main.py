@@ -10,5 +10,5 @@ if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     parent = QtWidgets.QMainWindow()
     Main.MainWindow(parent)
-    parent.show()
+    parent.showMaximized()
     sys.exit(app.exec_())

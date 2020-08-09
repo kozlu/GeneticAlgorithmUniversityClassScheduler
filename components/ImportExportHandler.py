@@ -4,7 +4,7 @@ import csv
 
 
 def getCSVFile(type):
-    fileName = QtWidgets.QFileDialog().getOpenFileName(None, 'Import CSV File', '', 'CSV File (*.csv)')
+    fileName = QtWidgets.QFileDialog().getOpenFileName(None, 'CSV Dosyasından Al', '', 'CSV File (*.csv)')
     if not fileName[0]:
         return False
     file = open(fileName[0], 'r')
@@ -21,7 +21,7 @@ def getCSVFile(type):
 
 
 def saveAs():
-    fileName = QtWidgets.QFileDialog.getSaveFileName(None, 'Save GAS Scenario', '', 'GAS Scenario (*.gas)')
+    fileName = QtWidgets.QFileDialog.getSaveFileName(None, 'GAS Senaryosunu Kaydet', '', 'GAS Scenario (*.gas)')
     if not fileName[0]:
         return False
     with open(fileName[0], 'w+') as file:
@@ -32,7 +32,7 @@ def saveAs():
 
 
 def load():
-    fileName = QtWidgets.QFileDialog().getOpenFileName(None, 'Load GAS Scenario', '', 'GAS Scenario (*.gas)')
+    fileName = QtWidgets.QFileDialog().getOpenFileName(None, 'GAS Senaryosunu Yükle', '', 'GAS Scenario (*.gas)')
     if not fileName[0]:
         return False
     with open(fileName[0], 'r') as file:

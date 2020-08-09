@@ -27,7 +27,7 @@ class Share:
     def setSharings(self):
         self.tree = tree = self.parent.treeSections
         self.model = model = QtGui.QStandardItemModel()
-        model.setHorizontalHeaderLabels(['ID', 'Sections', 'SectionID'])
+        model.setHorizontalHeaderLabels(['ID', 'Grup', 'GrupID'])
         tree.setModel(model)
         tree.setColumnHidden(0, True)
         tree.setColumnHidden(2, True)

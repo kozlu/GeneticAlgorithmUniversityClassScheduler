@@ -32,7 +32,7 @@
    <enum>Qt::NoFocus</enum>
   </property>
   <property name="windowTitle">
-   <string>Instructor</string>
+   <string>Öğretmen</string>
   </property>
   <property name="modal">
    <bool>false</bool>
@@ -46,7 +46,7 @@
      <item row="0" column="0">
       <widget class="QLabel" name="lblName">
        <property name="text">
-        <string>Name</string>
+        <string>Adı Soyadı</string>
        </property>
       </widget>
      </item>
@@ -56,7 +56,7 @@
      <item row="0" column="2">
       <widget class="QLabel" name="lblHours">
        <property name="text">
-        <string>Available Hours</string>
+        <string>Haftalık Ders Yükü</string>
        </property>
       </widget>
      </item>
@@ -73,14 +73,14 @@
      <item>
       <widget class="QPushButton" name="btnFinish">
        <property name="text">
-        <string>Finish</string>
+        <string>Kaydet</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="btnCancel">
        <property name="text">
-        <string>Cancel</string>
+        <string>İptal</string>
        </property>
       </widget>
      </item>

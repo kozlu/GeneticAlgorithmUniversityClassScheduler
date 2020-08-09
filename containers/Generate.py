@@ -57,7 +57,7 @@ class Generate:
 
     def togglePause(self):
         self.toggleState()
-        self.parent.btnPause.setText('Pause Generation' if self.running else 'Resume Generation')
+        self.parent.btnPause.setText('Duraklat' if self.running else 'Devam Et')
 
     def toggleState(self, state=None):
         self.running = (not self.running) if state is None else state
@@ -76,16 +76,16 @@ class Generate:
         self.geneticAlgorithm.start()
 
     def updateStatus(self, status):
-        self.parent.lblStatus.setText('Status: {}'.format(status))
+        self.parent.lblStatus.setText('Durum: {}'.format(status))
 
     def updateDetails(self, details):
-        self.parent.boxGen.setTitle('Generation #{}'.format(details[0]))
-        self.parent.lblPopulation.setText('Population: {}'.format(details[1]))
-        self.parent.lblMutation.setText('Mutation Rate: {}%'.format(details[2]))
-        self.parent.lblFitness.setText('Average Fitness: {}%'.format(details[3]))
-        self.parent.lblPreviousFitness.setText('Previous Average Fitness: {}%'.format(details[4]))
-        self.parent.lblHighestFitness.setText('Highest Fitness: {}%'.format(details[5]))
-        self.parent.lblLowestFitness.setText('Lowest Fitness: {}%'.format(details[6]))
+        self.parent.boxGen.setTitle('Üretim #{}'.format(details[0]))
+        self.parent.lblPopulation.setText('Nüfus: {}'.format(details[1]))
+        self.parent.lblMutation.setText('Mutasyon Oranı: {}%'.format(details[2]))
+        self.parent.lblFitness.setText('Ortalama Uygunluk: {}%'.format(details[3]))
+        self.parent.lblPreviousFitness.setText('Önceki Ortalama Uygunluk: {}%'.format(details[4]))
+        self.parent.lblHighestFitness.setText('En Yüksek Uygunluk: {}%'.format(details[5]))
+        self.parent.lblLowestFitness.setText('En Düşük Uygunluk: {}%'.format(details[6]))
 
     def updateView(self, chromosomes):
         chromosomes.reverse()
@@ -121,7 +121,7 @@ class Generate:
 
     def updateTime(self):
         self.time = self.time.addSecs(1)
-        self.parent.lblTime.setText('Elapsed Time: {}'.format(self.time.toString('hh:mm:ss')))
+        self.parent.lblTime.setText('Geçen Süre: {}'.format(self.time.toString('hh:mm:ss')))
 
     def stopOperation(self):
         self.toggleState(False)
@@ -130,12 +130,12 @@ class Generate:
         self.geneticAlgorithm.terminate()
         self.timer.stop()
         if len(self.topChromosomes):
-            self.parent.btnStop.setText('View Result')
+            self.parent.btnStop.setText('Sonuçları İncele')
             self.parent.btnStop.clicked.disconnect(self.stopOperation)
             self.parent.btnStop.clicked.connect(self.dialog.close)
-            self.parent.lblCPU.setText('CPU Usage: Stopped')
-            self.parent.lblMemory.setText('Memory Usage: Stopped')
-            self.parent.lblStatus.setText('Status: Stopped')
+            self.parent.lblCPU.setText('CPU Kullanımı: Durduruldu')
+            self.parent.lblMemory.setText('Hafıza Kullanımı: Durduruldu')
+            self.parent.lblStatus.setText('Durum: Durduruldu')
             self.totalResource['cpu'] = mean(self.totalResource['cpu'])
             self.totalResource['memory'] = mean(self.totalResource['memory'])
             self.meta = [[chromosome[1], chromosome[0].fitnessDetails] for chromosome in
@@ -161,8 +161,8 @@ class Generate:
         else:
             self.totalResource['cpu'].append(resource[0])
             self.totalResource['memory'].append(resource[1][1])
-        self.parent.lblCPU.setText('CPU Usage: {}%'.format(resource[0]))
-        self.parent.lblMemory.setText('Memory Usage: {}% - {} MB'.format(resource[1][0], resource[1][1]))
+        self.parent.lblCPU.setText('CPU Kullanımı: {}%'.format(resource[0]))
+        self.parent.lblMemory.setText('Hafıza Kullanımı: {}% - {} MB'.format(resource[1][0], resource[1][1]))
 
 
 class ResourceTrackerWorker(QtCore.QThread):

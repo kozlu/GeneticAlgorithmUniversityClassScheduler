@@ -52,7 +52,7 @@ class GeneticAlgorithm(QtCore.QThread):
 
     def generateChromosome(self, quantity):
         for i in range(quantity):
-            self.statusSignal.emit('Creating #{} of {} Chromosomes'.format(i, quantity))
+            self.statusSignal.emit('{} kromozomdan #{}.si oluşturuluyor'.format(quantity, i))
             self.tempChromosome = Chromosome(self.data)
             # {id: [[subjectIds](, stay|roomId = False)]}
             self.tempSections = sections = {key: [value[2], value[3]] for (key, value) in
@@ -234,7 +234,7 @@ class GeneticAlgorithm(QtCore.QThread):
         self.lowestFitness = 100
         self.highestFitness = 0
         for index, chromosome in enumerate(self.chromosomes):
-            self.statusSignal.emit('Evaluating #{} of {} Chromosomes'.format(index + 1, len(self.chromosomes)))
+            self.statusSignal.emit('{} kromozomdan #{}.si değerlendiriliyor'.format(len(self.chromosomes), index + 1))
             chromosome.fitness = self.evaluateAll(chromosome)
             totalChromosomeFitness += chromosome.fitness
             self.averageFitness = totalChromosomeFitness / len(self.chromosomes)

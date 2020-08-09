@@ -35,6 +35,6 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Share Subject"))
-        self.btnFinish.setText(_translate("Dialog", "Share"))
-        self.btnCancel.setText(_translate("Dialog", "Cancel"))
+        Dialog.setWindowTitle(_translate("Dialog", "Ders Paylaş"))
+        self.btnFinish.setText(_translate("Dialog", "Paylaş"))
+        self.btnCancel.setText(_translate("Dialog", "İptal"))

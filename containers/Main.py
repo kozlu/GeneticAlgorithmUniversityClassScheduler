@@ -219,7 +219,7 @@ class MainWindow(Main.Ui_MainWindow):
             self.updateSettings('evaluation_matrix', value, key)
         self.matrixSum = sum(self.settings['evaluation_matrix'].values())
         self.matrix = self.settings['evaluation_matrix']
-        self.lblTotal.setText('Total: {}%'.format(self.matrixSum))
+        self.lblTotal.setText('Toplam: {}%'.format(self.matrixSum))
 
     def updateSettings(self, key, value, secondKey=False):
         Settings.setSettings(key, value, secondKey)
